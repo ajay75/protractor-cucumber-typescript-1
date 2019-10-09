@@ -1,9 +1,6 @@
 {
   "name": "protractor-typescript-cucumber",
-  "version": "4.0.0",
-  "license": "MIT",
-  "description": "To demostrate protractor cucumber tests for angular/non angular apps with allure report framework",
-  "homepage": "https://github.com/igniteram/protractor-cucumber-typescript",
+  "description": "Protractor cucumber tests for angular/non angular apps with allure report framework",
   "keywords": [
     "protractor",
     "cucumber",
@@ -30,7 +27,6 @@
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start"
   },
-  "author": "Ram Pasala <ram.pasala7@gmail.com>",
   "devDependencies": {
     "@types/chai": "^4.2.3",
     "@types/cucumber": "^4.0.4",
@@ -48,6 +44,5 @@
     "ts-node": "^8.0.2",
     "tslint": "^5.20.0",
     "typescript": "^3.0.1"
-  },
-  "repository": "https://github.com/igniteram/protractor-cucumber-typescript"
+  }
 }

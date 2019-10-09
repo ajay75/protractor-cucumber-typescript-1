@@ -16,4 +16,4 @@ Then(/^I resize the screen (\d+) px width by (\d+) px height$/, resizeScreen);
 Then(/^I move to element "([^"]*)"$/, moveToElement);
 Then(/^I maximize the screen$/, maximizeScreen);
 Then(/^I click to "([^"]*)"$/, click);
-Then(/^I check "([^"]*)"( not)? is selected$/, checkIsSelected);
+Then(/^I check "([^"]*)" is( not)? selected$/, checkIsSelected);

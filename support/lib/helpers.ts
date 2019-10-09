@@ -1,6 +1,6 @@
-import {browser, by, element} from "protractor";
-import {protractor} from "protractor/built/ptor";
-import {expect} from "chai";
+import { expect } from "chai";
+import { browser, by, element } from "protractor";
+import { protractor } from "protractor/built/ptor";
 
 // Actions
 
@@ -76,20 +76,10 @@ async function maximizeScreen() {
 
 // Checks
 
-// async function checkElementEnabled(selector: string, not) {
-//     const isElementDisabled = element(by.css(selector)).isEnabled();
-//     const shouldElementBeDisabled = !!not;
-//
-//     expect(isElementDisabled).to.not.equal(undefined, `Error: element "${selector}" cannot be enabled or disabled`);
-//     expect(isElementDisabled).to.equal(shouldElementBeDisabled, `Expected "${selector}" to be ${shouldElementBeDisabled ? 'disabled' : 'enabled'}`);
-// }
-
-async function checkIsSelected(selector: string, not = undefined) {
+async function checkIsSelected(selector: string, not?) {
     const isSelected = await element(by.css(selector)).isSelected();
-    const shouldBeSelected = !!not;
-
-    expect(isSelected).to.not.equal(undefined, `element "${selector}" cannot be enabled or disabled`);
-    expect(isSelected).to.equal(shouldBeSelected, `Expected "${selector}" to be ${shouldBeSelected ? 'Not Selected' : 'Selected'}`)
+    if (not) { return expect(isSelected).to.equal(false); }
+    expect(isSelected).to.equal(true);
 }
 
 export {
@@ -103,3 +93,8 @@ export {
     maximizeScreen,
     checkIsSelected
 };
+
+// const shouldBeSelected = !not;
+//
+// expect(isSelected).to.not.equal(undefined, `element "${selector}" cannot be enabled or disabled`);
+// expect(isSelected).to.equal(shouldBeSelected, `Expected "${selector}" to be ${shouldBeSelected ? "Not Selected" : "Selected"}`);

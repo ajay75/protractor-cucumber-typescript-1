@@ -93,8 +93,3 @@ export {
     maximizeScreen,
     checkIsSelected
 };
-
-// const shouldBeSelected = !not;
-//
-// expect(isSelected).to.not.equal(undefined, `element "${selector}" cannot be enabled or disabled`);
-// expect(isSelected).to.equal(shouldBeSelected, `Expected "${selector}" to be ${shouldBeSelected ? "Not Selected" : "Selected"}`);

@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { browser, by, element } from "protractor";
 import { protractor } from "protractor/built/ptor";
+import { async } from "q";
 
 // Actions
 
@@ -46,7 +47,13 @@ async function resizeScreen(width: number, height: number) {
     }
 }
 
-async function moveToElement(selector: string) {
+/**
+ * Scroll to ELement
+ *
+ * @param {string} selector
+ */
+async function focusOnElement(selector: string) {
+    // Mouse move doing similar job like scrolling
     try {
         await browser
             .actions()
@@ -59,27 +66,63 @@ async function moveToElement(selector: string) {
     }
 }
 
+/**
+ * Waits for the selector to appear
+ *
+ * @param {string} selector
+ */
 async function waitForSelector(selector: string) {
     const until = protractor.ExpectedConditions;
     const e = element(by.css(selector));
     const timeout = 5000;
+
     await browser.wait(
         until.presenceOf(e),
         timeout,
-        `${selector} - selector took to long to appear`
+        `${selector} - selector appearance took longer than expected`
     );
 }
 
+/**
+ * Maximazes the screen
+ *
+ */
 async function maximizeScreen() {
     await browser.manage().window().maximize();
 }
 
 // Checks
 
+/**
+ * Checks reather check box is selected or not
+ *
+ * @param {string} selector
+ * @param {*} [not]
+ * @returns
+ */
 async function checkIsSelected(selector: string, not?) {
     const isSelected = await element(by.css(selector)).isSelected();
     if (not) { return expect(isSelected).to.equal(false); }
     expect(isSelected).to.equal(true);
+}
+
+async function checkIsDisplayed(selector: string, not?) {
+    const isDisplayed = await element(by.css(selector)).isDisplayed();
+    if (not) { return expect(isDisplayed).to.equal(false); }
+    expect(isDisplayed).to.equal(true);
+}
+
+/**
+ * Checks reather element is enabled or not
+ *
+ * @param {string} selector
+ * @param {*} [not]
+ * @returns
+ */
+async function checkElementEnabled(selector: string, not?) {
+    const isEnabled = await element(by.css(selector)).isEnabled();
+    if (not) { return expect(isEnabled).to.equal(false); }
+    expect(isEnabled).to.equal(true);
 }
 
 export {
@@ -88,8 +131,10 @@ export {
     openURL,
     type,
     resizeScreen,
-    moveToElement,
+    focusOnElement,
     waitForSelector,
     maximizeScreen,
-    checkIsSelected
+    checkIsSelected,
+    checkIsDisplayed,
+    checkElementEnabled
 };

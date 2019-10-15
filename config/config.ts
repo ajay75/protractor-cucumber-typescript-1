@@ -1,4 +1,3 @@
-import * as path from "path";
 import { browser, Config } from "protractor";
 import { Reporter } from "../support/reporter";
 const jsonReports = process.cwd() + "/reports/json";
@@ -13,6 +12,13 @@ export const config: Config = {
 
     capabilities: {
         browserName: "chrome",
+        chromeOptions: {
+            args: [
+                "--headless", // disable this headless for browser to appear
+                "--disable-gpu",
+                "--window-size=800,600"
+            ]
+        }
     },
 
     framework: "custom",

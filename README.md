@@ -1,26 +1,4 @@
-<p align="center">
-<img src= "./images/protractor-typescript-cucumber.png" height=300 alt="titleImage.png"/>
-</p>
-
-<p align="center">
-   <i><strong>This project demonstrates the basic protractor-cucumber-typescript framework project setup.
-</strong></i>
-<p>
-
-<p align="center">
-<a href="https://circleci.com/gh/igniteram/protractor-cucumber-typescript/tree/master"><img alt="circleCI Status" src="https://circleci.com/gh/igniteram/protractor-cucumber-typescript/tree/master.svg?style=shield"></a>
-<a href="https://david-dm.org/igniteram/protractor-cucumber-typescript"><img alt="dependencies status" src="https://david-dm.org/igniteram/protractor-cucumber-typescript.svg"></a>
-<a href=#contributors><img alt="contributors" src="https://img.shields.io/badge/all_contributors-4-orange.svg"></a>
-<a href="https://opensource.org/licenses/MIT"><img alt="MIT License" src="https://img.shields.io/dub/l/vibe-d.svg"></a>
-</p>
-
----
-
-
 ### Protractor-Cucumber-TypeScript Setup Guide   
-
-### Medium Article
-Please do checkout my medium article which would give you more insight on this setup. [protractor-cucumber-typescript(Medium)](https://medium.com/@igniteram/e2e-testing-with-protractor-cucumber-using-typescript-564575814e4a)
 
 ### Features
 * No typings.json or typings folder, they have been replaced by better **'@types'** modules in package.json.

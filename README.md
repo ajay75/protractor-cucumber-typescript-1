@@ -1,15 +1,5 @@
 ### Protractor-Cucumber-TypeScript Setup Guide   
 
-### Features
-* No typings.json or typings folder, they have been replaced by better **'@types'** modules in package.json.
-* ts-node(typescript execution environment for node) in cucumberOpts. 
-* All scripts written with > Typescript2.0 & Cucumber2.0.
-* Neat folder structures with transpiled js files in separate output folder.
-* Page Object design pattern implementation.
-* Extensive hooks implemented for BeforeFeature, AfterScenarios etc.
-* Screenshots on failure feature scenarios.
-
-
 ### To Get Started
 
 #### Pre-requisites

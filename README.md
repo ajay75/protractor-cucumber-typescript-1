@@ -31,7 +31,7 @@ npm run webdriver-update
 npm run webdriver-start
 ```
 
-* The below command would create an output folder named 'typeScript' and transpile the .ts files to .js.
+* The below command would create an output folder named 'dist' and transpile the .ts files to .js.
 ```
 npm run build
 ```

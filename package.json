@@ -18,12 +18,12 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "rimraf typeScript/",
+    "clean": "rimraf dist/",
     "clean-build": "npm run clean && npm run build",
     "init-contributors": "all-contributors init",
     "add-contributors": "all-contributors add",
     "generate-contributors": "all-contributors generate",
-    "test": "npm run build && protractor typeScript/config/config.js",
+    "test": "npm run build && protractor dist/config/config.js",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start"
   },

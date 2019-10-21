@@ -14,7 +14,7 @@ export const config: Config = {
         browserName: "chrome",
         chromeOptions: {
             args: [
-               // "--headless", // disable this headless for browser to appear
+                // "--headless", // disable this headless for browser to appear
                 "--disable-gpu",
                 "--window-size=800,600"
             ]
@@ -37,7 +37,7 @@ export const config: Config = {
     cucumberOpts: {
         compiler: "ts:ts-node/register",
         format: "json:./reports/json/cucumber_report.json",
-        require: ["../../typeScript/stepdefinitions/*.js", "../../typeScript/support/*.js"],
+        require: ["../../dist/stepdefinitions/*.js", "../../dist/support/*.js"],
         strict: true,
         tags: "@CucumberScenario or @ProtractorScenario or @TypeScriptScenario or @OutlineScenario",
     },

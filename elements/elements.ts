@@ -7,6 +7,9 @@ const elements: ElementOptions = {
     "Positions Header": element(by.xpath("//header//span[.='Positions']")),
     "Carry Prices Header": element(by.xpath("//header//span[.='Carry Prices']")),
     "Broker Matrix Header": element(by.xpath("//header//span[.='Broker Matrix']")),
+
+    // Broker Matrix page
+    "Broker Martrix page header": element(by.xpath("//h2[.='Metal broker matrix']")),
 };
 
 // Use keys on feature file

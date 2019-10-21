@@ -2,6 +2,7 @@ import { expect } from "chai";
 import { browser } from "protractor";
 import { protractor } from "protractor/built/ptor";
 import { getElement, getURL } from "../../elements/elements-utils";
+import { async } from "q";
 
 // +++++++++++++ Actions +++++++++++++
 
@@ -143,6 +144,19 @@ async function checkIsDisplayed(selector: string, not?) {
 }
 
 /**
+ * Checks reather element is present or not
+ *
+ * @param {string} selector
+ * @param {*} [not]
+ * @returns
+ */
+async function checkIsPresent(selector: string, not?) {
+    const isPresent = await getElement(selector).isPresent();
+    if (not) { return expect(isPresent).to.equal(false); }
+    expect(isPresent).to.equal(true);
+}
+
+/**
  * Checks reather element is enabled or not
  *
  * @param {string} selector
@@ -166,5 +180,6 @@ export {
     maximizeScreen,
     checkIsSelected,
     checkIsDisplayed,
+    checkIsPresent,
     checkElementEnabled
 };

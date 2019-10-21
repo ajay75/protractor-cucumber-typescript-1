@@ -1,8 +1,22 @@
 Feature: Home Page
+    as a tester I have to verify when I navigate
+    to Home page its elements should be displayed.
+
+    # @smoke @regression
+    # Scenario: When I navigate to Home page its elements should be displayed
+    #     Given I should be at "Home Page"
+    #     Then I expect the element "Positions Header" is displayed
+    #     Then I expect the element "Carry Prices Header" is displayed
+    #     Then I expect the element "Broker Matrix Header" is displayed
 
     @smoke @regression
-    Scenario: I should be at Home page
+    Scenario Outline: When I navigate to Home page its elements should be displayed
         Given I should be at "Home Page"
-        Then I expect the element "Positions Header" is displayed
-        Then I expect the element "Carry Prices Header" is displayed
-        Then I expect the element "Broker Matrix Header" is displayed
+        Then I expect the element "<Header elements>" is displayed
+        Then I expect the element "<Not Global Header elements>" is not displayed
+
+        Examples:
+            | Header elements      | Not Global Header elements |
+            | Positions Header     | Broker Martrix page header |
+            | Carry Prices Header  | Broker Martrix page header |
+            | Broker Matrix Header | Broker Martrix page header |

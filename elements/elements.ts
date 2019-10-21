@@ -1,12 +1,13 @@
-import { by, element, ElementFinder } from "protractor";
+import { by, element } from "protractor";
+import { ElementOptions, UrlOptions } from "./elements-utils";
 
-interface ElementOptions {
-    [key: string]: ElementFinder;
-}
-
-interface UrlOptions {
-    [key: string]: string;
-}
+// Use keys on feature file
+const elements: ElementOptions = {
+    // Metals client header elements
+    "Positions Header": element(by.xpath("//header//span[.='Positions']")),
+    "Carry Prices Header": element(by.xpath("//header//span[.='Carry Prices']")),
+    "Broker Matrix Header": element(by.xpath("//header//span[.='Broker Matrix']")),
+};
 
 // Use keys on feature file
 const URLs: UrlOptions = {
@@ -14,17 +15,7 @@ const URLs: UrlOptions = {
     "Login Page": ""
 };
 
-// Use keys on feature file
-const elements: ElementOptions = {
-    "Positions Header": element(by.xpath("//header//span[.='Positions']")),
-    "Carry Prices Header": element(by.xpath("//header//span[.='Carry Prices']")),
-    "Broker Matrix Header": element(by.xpath("//header//span[.='Broker Matrix']")),
+export {
+    URLs,
+    elements
 };
-
-export function getElement(key: string) {
-    return elements[`${key}`];
-}
-
-export function getURL(key: string) {
-    return URLs[`${key}`];
-}

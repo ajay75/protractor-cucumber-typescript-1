@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { browser } from "protractor";
 import { protractor } from "protractor/built/ptor";
-import { getElement, getURL } from "../../elements/elements";
+import { getElement, getURL } from "../../elements/elements-utils";
 
 // +++++++++++++ Actions +++++++++++++
 

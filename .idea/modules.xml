@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/protractor-cucumber-typescript.iml" filepath="$PROJECT_DIR$/.idea/protractor-cucumber-typescript.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/metals-test.iml" filepath="$PROJECT_DIR$/.idea/metals-test.iml" />
     </modules>
   </component>
 </project>

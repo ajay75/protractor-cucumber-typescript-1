@@ -1,5 +1,5 @@
 import { Given, Then } from "cucumber";
-import { click, openURL } from "../support/lib/helpers";
+import { checkIsDisplayed, click, openURL } from "../support/lib/helpers";
 
 Given(/^I should be at "([^"]*)"$/, openURL);
-Then(/^I click on "([^"]*)"$/, click);
+Then(/^I expect the element "([^"]*)" is( not)? displayed$/, checkIsDisplayed);

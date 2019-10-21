@@ -19,13 +19,12 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf dist/",
-    "clean-build": "npm run clean && npm run build",
-    "init-contributors": "all-contributors init",
-    "add-contributors": "all-contributors add",
-    "generate-contributors": "all-contributors generate",
-    "test": "npm run build && protractor dist/config/config.js",
-    "webdriver-update": "webdriver-manager update",
-    "webdriver-start": "webdriver-manager start"
+    "clean:build": "npm run clean && npm run build",
+    "test": "npm run build && protractor dist/config/config.js --cucumberOpts.tags=@test",
+    "test:smoke": "npm run build && protractor dist/config/config.js --cucumberOpts.tags=@smoke",
+    "test:regression": "npm run build && protractor dist/config/config.js --cucumberOpts.tags=@regression",
+    "webdriver:update": "webdriver-manager update",
+    "webdriver:start": "webdriver-manager start"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",

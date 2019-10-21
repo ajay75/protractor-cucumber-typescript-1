@@ -1,5 +1,5 @@
 Feature: Feature name
-    @CucumberScenario
+
     Scenario: Scenario name
         Given I should be at "https://learn.letskodeit.com/p/practice" home page
         Then I type "Tilek" to "#name"
@@ -12,6 +12,6 @@ Feature: Feature name
         Then I check "#benzradio" is not selected
         Then I check "#hondaradio" is enabled
         Then I check "#carselect" is enabled
-        # Then I focus on "a[href='#top']" element
+        Then I focus on "a[href='#top']" element
         Then I check element "#mousehover" is displayed
         Then I check element "a[href='#top']" is not displayed

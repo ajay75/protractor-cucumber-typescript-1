@@ -23,7 +23,7 @@
     "init-contributors": "all-contributors init",
     "add-contributors": "all-contributors add",
     "generate-contributors": "all-contributors generate",
-    "test": "protractor typeScript/config/config.js",
+    "test": "npm run build && protractor typeScript/config/config.js",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start"
   },

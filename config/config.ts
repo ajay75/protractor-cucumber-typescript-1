@@ -8,13 +8,13 @@ export const config: Config = {
 
     SELENIUM_PROMISE_MANAGER: false,
 
-    baseUrl: "https://learn.letskodeit.com/p/practice",
+    baseUrl: "http://localhost:3000",
 
     capabilities: {
         browserName: "chrome",
         chromeOptions: {
             args: [
-                "--headless", // disable this headless for browser to appear
+               // "--headless", // disable this headless for browser to appear
                 "--disable-gpu",
                 "--window-size=800,600"
             ]

@@ -1,38 +1,64 @@
 import { expect } from "chai";
-import { browser, by, element } from "protractor";
+import { browser } from "protractor";
 import { protractor } from "protractor/built/ptor";
-import { async } from "q";
+import { getElement, getURL } from "../../elements/elements";
 
-// Actions
+// +++++++++++++ Actions +++++++++++++
 
+/**
+ * Clicks to given button
+ *
+ * @param {string} selector
+ */
 async function click(selector: string) {
     try {
-        await element(by.css(selector)).click();
+        await getElement(selector).click();
     } catch (e) {
         throw new Error(`Could NOT CLICK on selector: ${selector}`);
     }
 }
 
+/**
+ * Types (enters) text or input to given text field
+ *
+ * @param {string} input
+ * @param {string} selector
+ */
 async function type(input: string, selector: string) {
     try {
-        await element(by.css(selector)).clear();
-        await element(by.css(selector)).sendKeys(input);
+        await getElement(selector).clear();
+        await getElement(selector).sendKeys(input);
     } catch (error) {
         throw new Error(`Could NOT type TEXT in to selector: ${selector}`);
     }
 }
 
-async function pressEnter(key: string) {
+/**
+ * Presses Enter button on keyboard
+ *
+ */
+async function pressEnter() {
     await browser
         .actions()
         .sendKeys(protractor.Key.ENTER)
         .perform();
 }
 
+/**
+ * Navigates to given URL
+ *
+ * @param {string} URL
+ */
 async function openURL(URL: string) {
-    await browser.get(URL);
+    await browser.get(getURL(URL));
 }
 
+/**
+ * Resizes the screen
+ *
+ * @param {number} width
+ * @param {number} height
+ */
 async function resizeScreen(width: number, height: number) {
     try {
         await browser
@@ -53,16 +79,13 @@ async function resizeScreen(width: number, height: number) {
  * @param {string} selector
  */
 async function focusOnElement(selector: string) {
-    // Mouse move doing similar job like scrolling
     try {
         await browser
             .actions()
-            .mouseMove(element(by.css(selector)))
+            .mouseMove(getElement(selector))
             .perform();
     } catch (error) {
-        throw new Error(
-            `Error: failed to scroll to element matching selector "${selector}"`
-        );
+        throw new Error(`Error: failed to scroll to element matching selector "${selector}"`);
     }
 }
 
@@ -73,7 +96,7 @@ async function focusOnElement(selector: string) {
  */
 async function waitForSelector(selector: string) {
     const until = protractor.ExpectedConditions;
-    const e = element(by.css(selector));
+    const e = getElement(selector);
     const timeout = 5000;
 
     await browser.wait(
@@ -91,7 +114,7 @@ async function maximizeScreen() {
     await browser.manage().window().maximize();
 }
 
-// Checks
+// +++++++++++++ Chceks +++++++++++++
 
 /**
  * Checks reather check box is selected or not
@@ -101,13 +124,20 @@ async function maximizeScreen() {
  * @returns
  */
 async function checkIsSelected(selector: string, not?) {
-    const isSelected = await element(by.css(selector)).isSelected();
+    const isSelected = await getElement(selector).isSelected();
     if (not) { return expect(isSelected).to.equal(false); }
     expect(isSelected).to.equal(true);
 }
 
+/**
+ * Checks reather element is displayed or not
+ *
+ * @param {string} selector
+ * @param {*} [not]
+ * @returns
+ */
 async function checkIsDisplayed(selector: string, not?) {
-    const isDisplayed = await element(by.css(selector)).isDisplayed();
+    const isDisplayed = await getElement(selector).isDisplayed();
     if (not) { return expect(isDisplayed).to.equal(false); }
     expect(isDisplayed).to.equal(true);
 }
@@ -120,7 +150,7 @@ async function checkIsDisplayed(selector: string, not?) {
  * @returns
  */
 async function checkElementEnabled(selector: string, not?) {
-    const isEnabled = await element(by.css(selector)).isEnabled();
+    const isEnabled = await getElement(selector).isEnabled();
     if (not) { return expect(isEnabled).to.equal(false); }
     expect(isEnabled).to.equal(true);
 }

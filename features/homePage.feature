@@ -12,8 +12,8 @@ Feature: Home Page
     @smoke @regression
     Scenario Outline: When I navigate to Home page its elements should be displayed
         Given I should be at "Home Page"
-        Then I expect the element "<Header elements>" is displayed
-        Then I expect the element "<Not Global Header elements>" is not displayed
+        Then I expect the element "<Header elements>" is present
+        Then I expect the element "<Not Global Header elements>" is not present
 
         Examples:
             | Header elements      | Not Global Header elements |
